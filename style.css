@@ -1,322 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Unbounded:wght@200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Unbounded:wght@200..900&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html, body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
 }
 
-:root {
-    --fundo: #030712;
-    --azul: #03D6FF;
-    --cinza: #64748B;
-    --amarelo: #FFB800;
+body {
+	background: #000000;
+	color: white;
 }
 
-.espaco_lateral{
-
-width: 78%;
-max-width: 1280px;
-margin: 0 auto;
+input[type="file"] {
+	color: black;
 }
 
-body{
-    width: 100%;
-    overflow-x:hidden;
-    background-color: var(--fundo);
+/* for scaling checkboxes according to the font size */
+.c3-auto-size-checkbox {
+	font-size: 1em;
+	width: 1em;
+	height: 1em;
+	vertical-align: bottom;
+	margin: 0.1em 0.25em;
 }
 
-header{
-    height: 110px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+html, body, canvas {
+	touch-action-delay: none;
+	touch-action: none;
 }
 
-header img{
-    width: 255px;
+canvas, .c3htmlwrap {
+	position: absolute;
 }
 
-.menu {
-    max-width: 500px;
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
+.c3htmlwrap {
+	contain: strict;
 }
 
-.menu a{
-    font-size: 12px;
-    font-family:"Orbitron", sans-serif;
-    font-weight: 600;
-    color: #6A93A0;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
+.c3overlay {
+	pointer-events: none;
 }
 
-.menu a :hover{
-    color: var(--azul);
-    border-bottom: 1px solid var(--azul);
-
+.c3htmlwrap[interactive] > * {
+	pointer-events: auto;
 }
 
-.btn_acessar{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    background: var(--azul);
-    color: #000;
-
-    padding: 12px 24px;
-    border-radius: 6px;
-
-    font-family: "Orbitron", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-
-    cursor: pointer;
-    transition: 0.3s ease;
-
-    box-shadow: 0 0 12px rgba(3, 214, 255, 0.4);
-}
-.btn_acessar:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(3, 214, 255, 0.8);
+/* HACK - work around elements being selectable only in iOS WKWebView for some reason */
+html[ioswebview] .c3htmlwrap,
+html[ioswebview] canvas {
+	-webkit-user-select: none;
+	user-select: none;
 }
 
- .btn_acessar svg{
-    width: 16px;
- }
-
- .navegacao{
-
-    color: var(--cinza);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: 60px;
-    font-family: "Inter", sans-serif;
- }
-
- .navegacao span {
-
-    color: var(--amarelo);
-    font-weight: 300;
- }
-
- .topo_desafio{
-
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 70px;
-
- }
-
- .badge_trilha{
-
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 10px 22px;
-    border-radius: 50px;
-    border: 1px solid var(--amarelo);
-
-    background: rgba(255, 184, 0, 0.08);
-    color: var(--amarelo);
-
-    font-family: "Orbitron", sans-serif;
-    font-size: 12px;
-    font-weight: 500px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-    box-shadow: 0 0 12px rgba(255, 184, 0, 0.15);
-    width: fit-content;
-
- }
-
- .inicio{
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 80px;
-
- }
-
- .sub_titulo{
-
-    color: var(--amarelo);
-    font-family: "Inter", sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 14px;
- }
-
-
- .titulo{
-    font-family: "Orbitron", sans-serif;
-    font-weight: bold;
-    color: #fff;
-    font-size: 25px;
- }
-
-
- .titulo span{
-    color: var(--amarelo);
- }
-
-
-.badge{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-     
-    font-family: "Inter", sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
+html[ioswebview] .c3htmlwrap > * {
+	-webkit-user-select: auto;
+	user-select: auto;
 }
 
-.tag{
-    background-color: #FFB7004B;
-    border-radius: 6px;
-    padding: 10px 15px;
+#notSupportedWrap {
+	margin: 2em auto 1em auto;
+	width: 75%;
+	max-width: 45em;
+	border: 2px solid #aaa;
+	border-radius: 1em;
+	padding: 2em;
+	background-color: #f0f0f0;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	color: black;
 }
 
-.tag p:nth-child(1){
-    color: #4A6B78;
-    font-size: 10px;
-
+#notSupportedTitle {
+	font-size: 1.8em;
 }
 
-.tag p:nth-child(2){
-    color: var(--amarelo);
-    font-size: 16px;
-    
+.notSupportedMessage {
+	font-size: 1.2em;
 }
 
-.construct{
-    height: 560px;
-    width: 100%;
-    margin-bottom: 80px;
-    border-radius: 28px;
+.notSupportedMessage em {
+	color: #888;
+}
+
+/* bbcode styles */
+.bbCodeH1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.bbCodeH2 {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.bbCodeH3 {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.bbCodeH4 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.bbCodeItem::before {
+	content: " • ";
+}
+
+/* For text icons converted to HTML: size the height to the line height
+   preserving the aspect ratio. Also add position: relative as that allows
+   just adding a 'top' style for the iconoffsety style. */
+.c3-text-icon {
+	height: 1em;
+	width: auto;
+	position: relative;
+}
+
+/* screen reader text */
+.c3-screen-reader-text {
+	position: absolute;
+	width: 1px;
+    height: 1px;
     overflow: hidden;
-    border: 2px solid rgba(255, 184, 0, 0.8);
-    box-shadow: 
-    0 0 20px rgba(255, 184, 0, 0.45),
-    0 0 60px rgba(255, 184, 0, 0.25);
-    background: #111;
-}
-
-.botao{
-    display: flex;
-    font-family: "Inter", sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    justify-content: center;
-    margin-bottom: 80px;
-    align-items: center;
-    background-color: var(--amarelo);
-    border-radius: 10px;
-    gap: 10px;
-    width: 300px;
-    padding: 20px;
-}
-
-botao svg{
-    width: 30px;
-
-}
-
-.botao :hover{
-    color: #fff;
-}
-
-footer{
-    background-color: #020c18;
-    padding: 80px 0;
-    color: #64748b;
-    font-family: "Inter", sans-serif;
-    font-weight: 300;
-}
-
-.roda_pe{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 80px;
-}
-
-
-.logo_footer{
-    max-width: 320px;
-}
-
-.logo_footer img{
-    margin-bottom: 20px;
-
-}
-
-.logo_footer p{
-    line-height: 1.6;
-}
-
-.titulo_footer{
-    font-family: "Orbitron", sans-serif;
-    color: var(--azul);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.navegacao_footer ul{
-    list-style: none;
-}
-
-.navegacao_footerli{
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.navegacao_footer li:hover{
-    color: var(--azul);
-}
-
-.item_contato{
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 5px;
-}
-
-.item_contato svg{
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-    color: #fff;
-}
-
-.social{
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-.social svg{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    fill: white;
-    color: white;
+    clip: rect(1px, 1px, 1px, 1px);
 }
